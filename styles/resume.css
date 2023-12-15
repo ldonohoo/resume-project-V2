@@ -1,147 +1,470 @@
 /*resume3.css
-Version 2.03
+Version 2.30
 lisa donohoo
 2023*/
 
-body {
-    margin: 0;
+:root {
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    
+    /* standard sizes */
+    --radius: 0.7rem;
+    --border-width: 0.4rem;
+    --border-width2: 0.3rem;
+    --sm-marg: 0.1rem;
+    --md-marg: 0.5rem;
+    --sm-pad: 0.5rem;
+    --md-pad: 0.9rem;
+    --greeny: rgb(29, 210, 23);
+
+   
+    /* colors */
+    --orangey:  rgb(196, 140, 79);
+    --lt-orangey: rgb(231, 165, 94);
+    --nice-green: rgba(85, 120, 85, 0.3);
+    --lt-nice-green: rgba(149, 201, 129, 0.3);
+    --pinkish: rgb(233, 145, 143);
+    --aqua-blue: rgb(63, 165, 165);
+    --bluegray: rgba(159, 173, 175, 0.582);
+    --darkgray: rgb(112, 109, 109);
+    --commonbrown: rgb(142, 96, 35);
+    --trans-black: rgba(0, 0, 0, 0.679);
+    --lt-trans-black: rgba(53, 53, 53, 0.463);
+    
+    --svgtreebubble:  polygon(27% 92%, 19% 97%, 16% 91%, 7% 95%, 10% 87%, 3% 87%, 5% 76%, 1% 70%, 4% 59%, 1% 52%, 6% 47%, 4% 41%, 9% 32%, 6% 28%, 9% 19%, 4% 19%, 10% 14%, 3% 10%, 14% 8%, 13% 3%, 26% 7%, 33% 3%, 39% 8%, 46% 1%, 54% 9%, 67% 2%, 73% 6%, 79% 1%, 84% 6%, 88% 1%, 89% 14%, 97% 7%, 94% 19%, 99% 24%, 93% 32%, 99% 38%, 94% 45%, 98% 53%, 93% 61%, 99% 70%, 92% 72%, 99% 76%, 94% 77%, 99% 81%, 92% 86%, 100% 91%, 89% 91%, 96% 98%, 86% 95%, 85% 99%, 80% 92%, 76% 98%, 73% 95%, 69% 99%, 62% 92%, 58% 98%, 53% 91%, 47% 97%, 44% 91%, 34% 98%);
+}
+
+body { 
+    position: relative;
     display: grid;
-    grid-template-columns: auto auto auto auto;
+    grid-template-columns: minmax(12rem, 22rem) min-content;
+    grid-template-rows: auto auto auto auto;
+    margin-left: 0;
+    margin-right: 0;
 }
 
-/* children of body: top-bar, sidebar, main and bottom-bar */
-.top-bar {
+header {
+    grid-row: 1;
     grid-column: 1 / 5;
-    padding-left: 5vw;
-    background-color: rgba(0, 255, 255, 0.76);
+    height: 1.3rem;
+    background-color: var(--nice-green);
+    
+
+    /*justify-content: end;
+    padding-top: var(--sm-marg);
+    padding-right: 10rem;
+    font-size: .7rem;
+    vertical-align: bottom;*/
+}
+.topbuttons {
+    list-style-type:none;
+    float: right;
+    height: 1.3rem;
+    margin: 0 5rem 0 0;
+    gap: 5rem;
 }
 
+.topbuttons > li {
+    display: inline-block;
+    text-align: center;
+    object-fit: contain;
+    height: 1.3rem;
+    padding-left: var(--md-pad);
+    padding-right: var(--md-pad);
+}
+
+/* holds photo, contact info, and skills */
 .sidebar {
-    grid-row: 2 / 3;
-    grid-column: 1 / 2;
-    display: flex;
-    flex-direction: column; 
-    background-color: rgb(230, 213, 191);
-    padding-right: 2.5vw;
-    padding-left: 1.5vw;
-    padding-top: 1vw;
-    width: 25vw;
-    border-right:ridge;
-    gap: 1vw;
+    grid-row: 2;
+    grid-column: 1; 
+    padding: var(--sm-pad);
+    margin: var(--md-marg) var(--md-marg) 1rem var(--md-marg);
+    background-color: var(--bluegray);
+    border-radius: var(--radius);
+   }
+
+/* headshot photo */
+
+#photoimg {
+    display: block;
+    margin: var(--md-marg) auto;
+    width: 65%;
+    height: 65%;
+    border-radius: var(--radius);
+    outline: var(--border-width) solid var(--bluegray);
 }
 
 
-
-
-/* sidebar contents */
-.contact-name, .contact-info, .skills {
-    padding: 2vw;
-    width: 20vw;
-    text-align: left;
-    border-style: dashed;
-    border-radius: 1.5vw;
-}
-
-.contact-info > div {
-    display: flex;
-    flex-direction: row;
-    width: 20vw;
-    height:auto;
-    align-items: center;
-    justify-content: center;
-    border-style: solid;
-    border-radius: 1.5vw;
-    border-width: .1vw;
-}
-
-.addr, .phone, .email, .linkedin, .github, .website {
+#name {
+    border-radius: var(--radius);
+    background-color: var(--nice-green);
+    border: var(--border-width) outset var(--bluegray);
     text-align: center;
-    padding-left: 2vw;
+    vertical-align: baseline;
+    font-size: .95rem;
+    font-style: italic;
+    font-stretch:condensed;
+    position:relative;
+} 
+
+#name::first-line {
+    font-size: 1.25rem;
+    font-style: normal;
+    font-stretch:extra-expanded;
 }
 
-.addr-icon, .phone-icon, .email-icon, .linkedin-icon,
-    .github-icon, .website-icon{
-    width: 3vw;
-    height: 3vw;
-
+/* separate contact button formatting */
+.contact-info button {
+    width: 100%;
+    margin: var(--sm-marg) 0 var(--sm-marg) 0;
+    padding: var(--sm-pad);
+    border: var(--border-width) outset var(--bluegray);
+    border-radius: var(--radius);
+    background-color: var(--nice-green);
+    text-align:justify;
+    font-size: 1rem;
+}
+.phone {
+    padding-top: 1rem;
 }
 
-.addr-icon > img, .phone-icon > img, .email-icon > img, 
-    .linkedin-icon > img, .github-icon > img, 
-    .website-icon > img {
-    width: 3vw;
-    height: 3vw;
+/* contact icon formatting- keep icon size same*/
+.contact-info img {
     object-fit: contain;
-}
-/*
-.contact-phone {
-    width: 20vw;
-    height: 3vw;
-    text-align: center;
-    object-fit: contain;
-    border-style: solid;
+    width: 1rem;
+    height: auto;
+    vertical-align: middle;
+    padding-right: .4rem;
 }
 
-.contact-phone > img {
-    width: 3vw;
-    height: 3vw;
-    object-fit: contain;
-    padding-right: 3vw;
-}
-*/
-
-
-.photo {
-    height: 20vw;
-    width: 20vw;
-    object-fit: contain;
-    mask-image: url(rounded-square.png);
-}
-
-.photo > img {
-    height: 20vw;
-    width: 20vw;
-    object-fit: contain;
-}
-
-
-/* main contents */
-/*
-.profile {
-
-}
-.experience {
+.skills {
     display: flex;
-    flex-direction: column;
-}*/
-.main {
+    flex-flow: row wrap;
+}
+
+.skill-name {
+    border-radius: var(--radius);
+    background-color: var(--orangey);
+    margin: var(--sm-marg);
+    padding: var(--sm-pad);
+    width:fit-content;
+    height: calc( 3rem - .9rem);
+    font-size: 1rem;
+    border: var(--border-width2) outset var(--bluegray);
+    cursor: pointer;
+}
+
+#popFig {
+    font-size: .6rem;
+    font-style: italic;
+}
+
+/* main profile/experience section */
+.about {
     grid-row: 2 / 3;
     grid-column: 2 / 5;
-    display: flex;
-    flex-flow: column wrap; 
-    height: auto;
-    background-color: brown;
+    margin: var(--md-marg) var(--md-marg) var(--md-marg) 0rem;
+    font-size: 1.2rem;
+    font-stretch: extra-expanded;
+ }
+
+/* about section: profile and experience */
+
+/* style outer boxes containing 3 headings */
+.about > div {
+    background-color: var(--bluegray);
+    border-radius: var(--radius);
+    padding: var(--sm-pad);
+    margin-bottom: var(--md-marg);
 }
 
-.bottom-bar { 
-    grid-row: 3 / 4;
-    grid-column: 1 / 5;
-    padding-left: 5vw;
-    background-color: rgba(0, 255, 255, 0.76);
-    border-style: dotted;
+.tree {
+	float: left;
+    margin: -1.1rem 0 -1 0;
+    padding: 0;
+    height: 13rem;
+    width:auto;
 }
-.main > div {
-    border-style: solid;
-    border-width: .1vw;
-    border-radius: 1.5vw;
-    justify-content: space-between;
-    background-color: rgb(122, 233, 176);
-    width: 50vw;
+
+#treebox {
+	position: relative;
+    padding: 0;
+}
+
+.intro {
+    background-color: var(--nice-green);
+    border-radius: var(--radius);
+    border: var(--border-width) outset var(--bluegray);
+    padding: var(--sm-pad);
     text-align: center;
-    line-height: 7vw;
-    font-size: 3vw;
-    display: flex;
-    flex-direction: column;
+    font-size: 1rem;
+    font-style: normal;
+    min-height: 13rem;
+    margin-left: var(--sm-marg);
+	z-index: -1;
+}
+
+#popup {
+    background-color: var(--trans-black);
+    border-radius: var(--radius);
+    color: white;
+    width: 15rem;
+    height: auto;
+    margin: 15rem 0 0 0;
+    padding: 2rem;
+    z-index: 1;
+    position: absolute;
+    display: none;
+    animation: zoom 0.2s;
+}
+
+#popup span {
+    display: inline-block;
+    width: 13rem;
+    background-color: var(--darkgray);
+    padding: .8rem;
 }
 
 
+.experience > div,
+.education p, 
+.interests > details {
+    background-color: var(--nice-green);
+    border-radius: var(--radius);
+    border: var(--border-width) outset var(--bluegray);
+    padding: var(--sm-pad);
+    margin: var(--md-marg);
+}
+
+.experience div {
+    font-size: 1rem;
+    text-align: left;
+}
+
+.experience p,
+.education p{
+    font-size: .9rem;
+    font-style: normal;
+}
+.interests details {
+    font-size: 1rem;
+    text-align: left;
+}
+ul {
+    padding: 0 0 0 var(--md-marg);
+}
+
+.tooltiptext2 {
+    position: absolute;
+    width: auto;
+    background-color: var(--trans-black);
+    color: white;
+    border-radius: var(--radius);
+    padding: var(--sm-pad);
+    margin-left: 13rem;
+    z-index: 1;
+}
+
+.tooltiptext {
+    position: absolute;
+    width: auto;
+    background-color: var(--trans-black);
+    color: white;
+    border-radius: var(--radius);
+    padding: var(--sm-pad);
+    z-index: 1;
+    margin-left: 3rem;
+}
+
+footer {
+    background-color: var(--nice-green);
+    grid-column: 1 / 5;
+    padding: 1rem 0% 0% var(--sm-pad);
+}
+
+footer p {
+    margin: 0;
+    white-space: pre;
+}
+
+footer span {
+    font-style:italic;
+}
+
+/* hide this stuff: display of skills popup details and tooltips */
+.tooltiptext,
+.tooltiptext2,
+.skills p,
+#fig,    
+#ball
+{
+    display: none;
+}
+
+/* get rid of address and website don't need */
+.addr, .website {
+    display: none;
+}
+
+.erps, .change-control, .schedulers {
+    display: none;
+}
+
+/* animation of buttons, etc */
+
+
+.topbuttons > li:hover {
+    background-color: var(--lt-trans-black);
+    color: white;
+}
+
+button:hover,
+#name:hover {
+    background-color: var(--lt-nice-green);
+    cursor: pointer;
+
+}
+
+
+.skill-name:hover {
+    background-color: var(--lt-orangey);
+}
+
+#photoimg:hover {
+    animation: bounce-photo .2s both cubic-bezier(0.2, 0.7, 0.7, 0.3);
+}
+
+#ball {
+    position: absolute;
+    height: 1rem;
+    width: 1rem;
+    background-color: rgb(11, 69, 32);
+    border-radius: 50% 50% 50% 50%;
+    left: 80%;
+    top: .2rem;
+    animation: ball-idle 1ms;
+}
+
+#ball:hover {
+    background-color: rgba(30, 120, 74, 0.369);
+}
+
+/* animation keyframes */
+
+@keyframes wiggle {
+
+    50% {
+        transform: skew(-37deg);
+    }
+    100% {
+        transform: skew(37deg);
+    }
+}
+
+@keyframes twist {
+
+    50% {
+        transform: rotate(-37deg);
+    }
+    100% {
+        transform: rotate(-37deg);
+    }
+}
+@keyframes blow-back {
+    0% { 
+        transform: scale(1,1);
+    }
+    50% {
+        transform: scale(.7,.8);
+    }
+    100% {
+        transform: scale(1, 1);
+    }
+}
+
+@keyframes blow-to-left {
+    0% { 
+        transform: transform(0rem,0rem);
+    }
+    50% {
+        transform: transform(-.6rem,-.1rem);
+    }
+    100% {
+        transform: transform(0rem,0rem);
+    }
+}
+
+@keyframes zoom {
+    from {transform:scale(0)}
+    to {transform:scale(1)}
+}
+
+@keyframes bounce-photo {
+    0% { 
+        transform: scale(1.1, 1.1);
+    }
+    50% {
+        transform: scale(1.2, 1.2);
+    }
+    100% {
+        transform: scale(1, 1);
+    }
+}
+
+@keyframes idle-photo {
+    10% {
+        opacity: 0;
+    }
+}
+
+/* idle animation associated with ball on page load and when animation done */
+@keyframes ball-idle {
+    10% {opacity: 0;
+    }
+}
+
+/* this animation associated with ball when
+   ballDrop() triggers with click event*/
+@keyframes ball-drop {
+    0% {
+        background-color: green;
+        transform: translateX(0rem);
+        opacity: 1;  
+    }
+    20% {
+        background-color: green;
+        transform: translateX(-35rem);
+		animation-timing-function: cubic-bezier(.57, .35, .35, .35);
+        opacity: 1;  
+    }
+	42% {
+        background-color: green;
+        transform: translateX(-36.5rem) translateY(1rem);
+        animation-timing-function: cubic-bezier(0.40, 0.55, 0.35, 0.15);  
+    }
+    65% {
+        background-color: green;
+        transform: translateX(-38rem) translateY(.75rem);
+        animation-timing-function: cubic-bezier(0.15, 0.35, 0.78, .70);  
+    }
+    78% {
+        background-color: orange;
+        transform: translateX(-35rem) translateY(5rem);
+        animation-timing-function: cubic-bezier(1.0, .78, .55, .33); 
+    }
+    100% {
+        background-color: rgb(217, 64, 89);
+        transform: translateX(-35rem) translateY(17rem);
+        animation-timing-function: ease-in-out;   
+    }
+}
+
+
+/*
+    #egg {
+      display: block;
+      width: 126px;
+      height: 180px;
+      background-color: red;
+      border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    }
+  */ 
