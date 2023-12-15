@@ -1,0 +1,144 @@
+/*resume3.css lisa donohoo 2023*/
+
+body {
+    margin: 0;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+}
+
+/* children of body: top-bar, sidebar, main and bottom-bar */
+.top-bar {
+    grid-column: 1 / 5;
+    padding-left: 5vw;
+    background-color: rgba(0, 255, 255, 0.76);
+}
+
+.sidebar {
+    grid-row: 2 / 3;
+    grid-column: 1 / 2;
+    display: flex;
+    flex-direction: column; 
+    background-color: rgb(230, 213, 191);
+    padding-right: 2.5vw;
+    padding-left: 1.5vw;
+    padding-top: 1vw;
+    width: 25vw;
+    border-right:ridge;
+    gap: 1vw;
+}
+
+
+
+
+/* sidebar contents */
+.contact-name, .contact-info, .skills {
+    padding: 2vw;
+    width: 20vw;
+    text-align: left;
+    border-style: dashed;
+    border-radius: 1.5vw;
+}
+
+.contact-info > div {
+    display: flex;
+    flex-direction: row;
+    width: 20vw;
+    height:auto;
+    align-items: center;
+    justify-content: center;
+    border-style: solid;
+    border-radius: 1.5vw;
+    border-width: .1vw;
+}
+
+.addr, .phone, .email, .linkedin, .github, .website {
+    text-align: center;
+    padding-left: 2vw;
+}
+
+.addr-icon, .phone-icon, .email-icon, .linkedin-icon,
+    .github-icon, .website-icon{
+    width: 3vw;
+    height: 3vw;
+
+}
+
+.addr-icon > img, .phone-icon > img, .email-icon > img, 
+    .linkedin-icon > img, .github-icon > img, 
+    .website-icon > img {
+    width: 3vw;
+    height: 3vw;
+    object-fit: contain;
+}
+/*
+.contact-phone {
+    width: 20vw;
+    height: 3vw;
+    text-align: center;
+    object-fit: contain;
+    border-style: solid;
+}
+
+.contact-phone > img {
+    width: 3vw;
+    height: 3vw;
+    object-fit: contain;
+    padding-right: 3vw;
+}
+*/
+
+
+.photo {
+    height: 20vw;
+    width: 20vw;
+    object-fit: contain;
+    mask-image: url(rounded-square.png);
+}
+
+.photo > img {
+    height: 20vw;
+    width: 20vw;
+    object-fit: contain;
+}
+
+
+/* main contents */
+/*
+.profile {
+
+}
+.experience {
+    display: flex;
+    flex-direction: column;
+}*/
+.main {
+    grid-row: 2 / 3;
+    grid-column: 2 / 5;
+    display: flex;
+    flex-flow: column wrap; 
+    height: auto;
+    background-color: brown;
+}
+
+.bottom-bar { 
+    grid-row: 3 / 4;
+    grid-column: 1 / 5;
+    padding-left: 5vw;
+    background-color: rgba(0, 255, 255, 0.76);
+    border-style: dotted;
+}
+.main > div {
+    border-style: solid;
+    border-width: .1vw;
+    border-radius: 1.5vw;
+    justify-content: space-between;
+    background-color: rgb(122, 233, 176);
+    width: 50vw;
+    text-align: center;
+    line-height: 7vw;
+    font-size: 3vw;
+    display: flex;
+    flex-direction: column;
+}
+
+
