@@ -1,131 +1,148 @@
-/*  Stylesheets for resume v1.00
+/*  Stylesheets for resume v2.03
     Lisa Donohoo
 */
+/*resume3.css lisa donohoo 2023*/
 
 body {
-    margin-left: 0.1vw;
-    margin-right: 0.1vw;
-}
-
-
-/*
-div {
-    border-style: solid;
-    border-radius: .5vw;
-    border-color: black;
-} */
-.page-container {
+    margin: 0;
     display: grid;
-    grid-gap: 1vw;
-    grid-template-areas:
-          'header header header header header header'
-          'pic pic profile profile profile profile'
-          'pic pic profile profile profile profile'
-          'name name exp exp exp exp'
-          'info info exp exp exp exp'
-          'info info exp exp exp exp'
-          'info info exp exp exp exp'
-          'info info exp exp exp exp'
-          'skills skills exp exp exp exp'
-          'skills skills exp exp exp exp';
-    /*grid-template-columns: 
-         33vw 33vw 33vw 33vw 33vw 33vw;*/
+    grid-template-columns: auto auto auto auto;
 }
 
-.page-container > div {
+/* children of body: top-bar, sidebar, main and bottom-bar */
+.top-bar {
+    grid-column: 1 / 5;
+    padding-left: 5vw;
+    background-color: rgba(0, 255, 255, 0.76);
+}
+
+.sidebar {
+    grid-row: 2 / 3;
+    grid-column: 1 / 2;
+    display: flex;
+    flex-direction: column; 
+    background-color: rgb(230, 213, 191);
+    padding-right: 2.5vw;
+    padding-left: 1.5vw;
+    padding-top: 1vw;
+    width: 25vw;
+    border-right:ridge;
+    gap: 1vw;
+}
+
+
+
+
+/* sidebar contents */
+.contact-name, .contact-info, .skills {
+    padding: 2vw;
+    width: 20vw;
+    text-align: left;
+    border-style: dashed;
+    border-radius: 1.5vw;
+}
+
+.contact-info > div {
+    display: flex;
+    flex-direction: row;
+    width: 20vw;
+    height:auto;
+    align-items: center;
+    justify-content: center;
     border-style: solid;
-    border-radius: .5vw;
-    border-color: black;
+    border-radius: 1.5vw;
+    border-width: .1vw;
 }
 
-.skills > div {
+.addr, .phone, .email, .linkedin, .github, .website {
+    text-align: center;
+    padding-left: 2vw;
+}
+
+.addr-icon, .phone-icon, .email-icon, .linkedin-icon,
+    .github-icon, .website-icon{
+    width: 3vw;
+    height: 3vw;
+
+}
+
+.addr-icon > img, .phone-icon > img, .email-icon > img, 
+    .linkedin-icon > img, .github-icon > img, 
+    .website-icon > img {
+    width: 3vw;
+    height: 3vw;
+    object-fit: contain;
+}
+/*
+.contact-phone {
+    width: 20vw;
+    height: 3vw;
+    text-align: center;
+    object-fit: contain;
+    border-style: solid;
+}
+
+.contact-phone > img {
+    width: 3vw;
+    height: 3vw;
+    object-fit: contain;
+    padding-right: 3vw;
+}
+*/
+
+
+.photo {
+    height: 20vw;
+    width: 20vw;
+    object-fit: contain;
+    mask-image: url(rounded-square.png);
+}
+
+.photo > img {
+    height: 20vw;
+    width: 20vw;
+    object-fit: contain;
+}
+
+
+/* main contents */
+/*
+.profile {
+
+}
+.experience {
     display: flex;
-    flex-wrap: wrap;
-}
-
-.experience > div {
-    display: flex;
-    flex-wrap: wrap;
-}
-
-@media only screen and (max-width: 600px) {
-    /*grid formatting for cell phones and small screens*/
-}
-
-@media screen and (min-width: 601px) {
-    header {
-        grid-area: header;
-        padding-left: 4vw;
-        background-color: rgba(0, 127, 36, 0.846);
-        border-style: solid;
-        border-width: 0.1vw;
-        border-color:rgba(0, 0, 0, 0.87);
-    }
-
-     .photo {
-        background-color: blueviolet;
-        grid-area: pic;
-        border-style: solid;
-        border-radius: .5vw;
-        border-color: black;
-    }
-
-    .contact-name {
-        grid-area: name;
-        border-style: solid;
-        border-radius: .5vw;
-        border-color: black;
-    }
-  
-    .contact-info {
-        grid-area: info;
-        border-style: solid;
-        border-radius: .5vw;
-        border-color: black;
-    }
-    .skills {
-        grid-area: skills;
-        border-style: solid;
-        border-radius: .5vw;
-        border-color: black;
-    }
-    .profile {
-        grid-area: profile;
-        border-style: solid;
-        border-radius: .5vw;
-        border-color: black;
-    }
-    .experience {
-        grid-area: exp;
-        border-style: solid;
-        border-radius: .5vw;
-        border-color: black;
-    }*/
-
-
-}  /* media screen full page/big section end*/
-footer {
-        background-color:coral;
-        padding-left: 4vw;
-} 
-
-
-/* masking with text code works*/
-/*.fullname {
-    padding-top:2vw;
-    padding-left:15vw;
-    color:white;
-    font-family: Verdana, Geneva, Tahoma, sans-serif; 
-    font-weight:900;   
-    font-size:10vw;  
-        color: transparent;
-        background-clip: text;
-        background-image: url(NbTbTRC.jpg);
-        background-size: cover;
-        background-position: center;
+    flex-direction: column;
 }*/
+.main {
+    grid-row: 2 / 3;
+    grid-column: 2 / 5;
+    display: flex;
+    flex-flow: column wrap; 
+    height: auto;
+    background-color: brown;
+}
 
-/*.fullname {
+.bottom-bar { 
+    grid-row: 3 / 4;
+    grid-column: 1 / 5;
+    padding-left: 5vw;
+    background-color: rgba(0, 255, 255, 0.76);
+    border-style: dotted;
+}
+.main > div {
+    border-style: solid;
+    border-width: .1vw;
+    border-radius: 1.5vw;
+    justify-content: space-between;
+    background-color: rgb(122, 233, 176);
+    width: 50vw;
+    text-align: center;
+    line-height: 7vw;
+    font-size: 3vw;
+    display: flex;
+    flex-direction: column;
+}/*.fullname {
     background-color: rgba(0, 128, 0, 0.155);
     padding-top:2vw;
     padding-left:15vw;
